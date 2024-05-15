@@ -4,13 +4,18 @@ import LanguageIcon from '@mui/icons-material/Language';
 import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 function Header() {
     return ( 
     <div className=" h-50 w-100  d-flex align-items-center justify-content-between  p-4">
+
+        <NavLink to='/'>
         <div className='d-inline-flex'>
         <img src={logo} height='40'   width='40' />
         <a href='#' className='text-decoration-none a1 ms-2 fs-3 fw-bolder'>airbnb</a>
         </div>
+        </NavLink>
         
         <div className='d-flex align-items-center ms-5'>
             <a className=' text-decoration-none a2 fs-5'>Stays</a>
@@ -22,9 +27,12 @@ function Header() {
             <a className='ms-4 a2  fs-6'>
                 <LanguageIcon fontSize='small'/>
             </a>
-            <div id='br' className=' ms-3 d-flex align-items-center border border-2 rounded-pill p-2'>
-                <MenuIcon  />       
-         <Avatar sx={{width:24, height:24}} className='ms-2'/>
+            <div id='br' className=' ms-3 '>
+                 <NavLink to='/login'>
+                    
+                 <Avatar sx={{width:24, height:24}} className='ms-2'/>
+                 </NavLink>
+         
             </div>
         </div>
     </div>

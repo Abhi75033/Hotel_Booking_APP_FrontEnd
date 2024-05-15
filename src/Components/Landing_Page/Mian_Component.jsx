@@ -7,7 +7,6 @@ import SearchBar from "./Search";
 function Mian() {
     return ( 
         <>
-        <Header/>
         <SearchBar/>
         <hr/>
         <div className="row z-0">

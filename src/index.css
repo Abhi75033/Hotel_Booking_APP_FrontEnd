@@ -1,4 +1,10 @@
-body{
-    background-image: url('./assets/img21.jpg');
-    background-size: cover;
+@import url('https://fonts.googleapis.com/css2?family=Artifika&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+
+.cp{
+    cursor: pointer;
+}
+
+.fon1{
+    font-family: "Artifika", serif;    
 }
