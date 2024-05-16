@@ -2,10 +2,11 @@ import { useState } from 'react';
 import '../../../src/index.css'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 function Login() {
     const [user,setUser]=useState({Username:'',password:''})
    const [ValidateError,setValidateError]=useState({})
+   const navigate = useNavigate()
    const ValidateForm=()=>{
   const errors={}
     if (!user.Username) {
@@ -29,9 +30,10 @@ function Login() {
 
         try {
             const resp = await axios.post('http://localhost:3000/api/v1/users/login',user)
-            console.log(resp);
+            
             if (resp.status==200) {
               toast.success(resp.data.message)  
+              navigate('/')
             }
         } catch (error) {
             toast.error(error.response.data.message)
