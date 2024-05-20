@@ -6,14 +6,26 @@ import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Home } from "@mui/icons-material";
-import PersonIcon from '@mui/icons-material/Person';
-import LuggageIcon from '@mui/icons-material/Luggage';
-import WavingHandIcon from '@mui/icons-material/WavingHand';
+import { Home, Login, Logout } from "@mui/icons-material";
+import PersonIcon from "@mui/icons-material/Person";
+import LuggageIcon from "@mui/icons-material/Luggage";
+import WavingHandIcon from "@mui/icons-material/WavingHand";
+import { useMyContext } from "../Utils/ContextProvider";
+import profileimg from "../../assets/ProfileImage.jpg";
+import { Button } from "bootstrap";
+import { Skeleton } from "@mui/material";
 // import Sidebar from './Sidebar';
 // import Sidebars from './Sidebar';
 function Header() {
-    const [name,setName]=useState('Traveller')
+  const [name, setName] = useState("Traveller");
+  const { data, setData, login, setLogin } = useMyContext();
+  const json = localStorage.getItem("user");
+  const user = JSON.parse(json);
+
+  const handleLogout=()=>{
+    localStorage.clear()
+  }
+
   return (
     <div className=" h-50 w-100  d-flex align-items-center justify-content-between  p-4">
       <NavLink to="/">
@@ -36,14 +48,18 @@ function Header() {
           <LanguageIcon fontSize="small" />
         </a>
         <div id="br" className=" ms-3 ">
-          <button 
+          <button
             className="btn border-0 "
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#staticBackdrop"
             aria-controls="staticBackdrop"
           >
-            <Avatar sx={{ width: 30, height: 30 }} className="ms-2" />
+            <Avatar
+              src={user ? user.avatar : profileimg}
+              sx={{ width: 30, height: 30 }}
+              className="ms-2"
+            />
           </button>
 
           <div
@@ -55,9 +71,9 @@ function Header() {
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="staticBackdropLabel">
-               <WavingHandIcon className="text-danger"/> &nbsp;Hello {name}
-               <hr className="w-75 text-info "/>
-              
+                <WavingHandIcon className="text-danger" /> &nbsp;Hello &nbsp;
+                {user ? user.name : name}
+                <hr className="w-75 text-info " />
               </h5>
               <button
                 type="button"
@@ -67,25 +83,49 @@ function Header() {
               ></button>
             </div>
             <div class="offcanvas-body">
-             <ul className="list-unstyled">
-                <li >
-                  <NavLink className='text-decoration-none' to='/'>
-                  <span className="d-flex align-content-center fs-5  gap-2"> <Home className="fs-2"/> Home</span>
+              <ul className="list-unstyled">
+                <li>
+                  <NavLink className="text-decoration-none" to="/">
+                    <span className="d-flex align-content-center fs-5  gap-2">
+                      <Home className="fs-2 text-dark" /> Home
+                    </span>
                   </NavLink>
                 </li>
-                <hr className="w-75 text-danger "/>
-                <li className="mt-4">
-                <span className="d-flex align-content-center fs-5 gap-2"><PersonIcon className="fs-2"/> Profile</span>
-                </li >
-                <hr className="w-75 text-danger "/>
-                <li className="mt-4">
-                <span className="d-flex align-content-center fs-5 gap-2"><LuggageIcon className="fs-2"/> Bookings</span>
+
+                <hr className="w-75 text-danger " />
+                <li className="mt-4 text-dec">
+                 { user && <NavLink className="text-decoration-none" to="/profile">
+                    <span className="d-flex align-content-center fs-5 gap-2">
+                      <PersonIcon className="fs-2 text-dark" /> Profile
+                    </span>
+                  </NavLink>}
                 </li>
-                <hr className="w-75 text-danger "/>
+                <hr className="w-75 text-danger " />
                 <li className="mt-4">
-                   Your Profile
+                  <span className="d-flex align-content-center fs-5 gap-2">
+                    <LuggageIcon className="fs-2" />
+                    My Bookings
+                  </span>
                 </li>
-             </ul>
+                <hr className="w-75 text-danger " />
+
+                <li className="mt-4">
+                  { user?
+                    <NavLink className="text-decoration-none" to="/login">
+                    <span className="d-flex align-content-center fs-5 gap-2">
+                      <Logout className="fs-2 text-dark" />
+                      <button onClick={handleLogout} className=" border-0 bg-transparent">Logout</button>
+                    </span>
+                  </NavLink>
+                  :  <NavLink className="text-decoration-none" to="/login">
+                  <span className="d-flex align-content-center fs-5 gap-2">
+                    <Login className="fs-2 text-dark" />
+                    Login
+                  </span>
+                </NavLink>
+                  }
+                </li>
+              </ul>
             </div>
           </div>
         </div>

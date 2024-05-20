@@ -3,10 +3,12 @@ import '../../../src/index.css'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { Toast } from 'bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 function Registration() {
     const [user,setUser]=useState({name:'',email:'',Username:'',password:''})
    const [ValidateError,setValidateError]=useState({})
+   const navigate = useNavigate()
    const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]+$/
    const ValidateForm=()=>{
   const errors={}
@@ -44,7 +46,9 @@ function Registration() {
         try {
             const resp = await axios.post('http://localhost:3000/api/v1/users/ragister',user)
             if (resp.status==201) {
+                navigate('/login')
               toast.success(resp.data.data)  
+              
             }
         } catch (error) {
             toast.error(error.response.data.message)

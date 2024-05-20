@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.a3{
+  font-family: "Artifika", serif;
+}
+
 .btn-c{
   font-family: "Artifika", serif;
   font-optical-sizing: auto;
@@ -52,8 +56,13 @@ input::placeholder{
 
   font-family: "Artifika", serif;
 }
+.nav-link.active {
+  color: #007bff; /* Example color for active link */
+}
 
-
+.sk{
+  background-color: #E7F0F3;
+}
 
 .a2::after {
   content: '';

@@ -3,10 +3,13 @@ import '../../../src/index.css'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useMyContext } from '../Utils/ContextProvider';
 function Login() {
     const [user,setUser]=useState({Username:'',password:''})
    const [ValidateError,setValidateError]=useState({})
    const navigate = useNavigate()
+   const {data,setData,login,setLogin}=useMyContext()
+   console.log(data);
    const ValidateForm=()=>{
   const errors={}
     if (!user.Username) {
@@ -21,19 +24,25 @@ function Login() {
     return errors
    }
 
+  
+
    const handler = async(e)=>{
     e.preventDefault()
     const errors= ValidateForm();
     if (Object.keys(errors).length===0) {
         setValidateError({})
-    
-
         try {
             const resp = await axios.post('http://localhost:3000/api/v1/users/login',user)
             
             if (resp.status==200) {
               toast.success(resp.data.message)  
+              console.log(resp);
+             localStorage.setItem('user',JSON.stringify(resp.data.data.user))   
+           
+             
               navigate('/')
+              
+
             }
         } catch (error) {
             toast.error(error.response.data.message)
@@ -45,7 +54,7 @@ function Login() {
    }
     return ( 
     <div className="container-fluid">
-    <h1 className="text-center mt-2 fon1">Login/Ragistartion</h1>
+    <h1 className="text-center mt-2 fon1">Login</h1>
     <hr/>
     <form onSubmit={handler}>
   <div className="mb-3">
