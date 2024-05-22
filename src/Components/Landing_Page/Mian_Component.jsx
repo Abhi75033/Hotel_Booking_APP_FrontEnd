@@ -1,6 +1,8 @@
 import Slider from "../Slider/Slider";
 import Slider2 from "../Slider/Slider2";
 import Slider3 from "../Slider/Slider3";
+import HotelList from "./2nd_section/HotelList";
+import Iocnbar from "./2nd_section/List_Of_Icon";
 import Header from "./Header";
 import SearchBar from "./Search";
 
@@ -9,17 +11,10 @@ function Mian() {
         <>
         <SearchBar/>
         <hr/>
-        <div className="row z-0">
-        <diV className='col'>
-        <Slider/>
-        </diV>
-        <diV className='col'>
-        <Slider2/>
-        </diV>
-        <diV className='col'>
-       <Slider3/>
-        </diV>
-        
+        <Iocnbar/>
+        <hr/>
+        <div className="mt-4" >
+        <HotelList/>
         </div>
         </>
      );

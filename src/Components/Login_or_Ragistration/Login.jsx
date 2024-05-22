@@ -77,7 +77,8 @@ function Login() {
     <div className='invalid-feedback'>{ValidateError.password}</div>
  }
   </div>
-  <button type="submit" className="btn mt-2 btn-primary w-100 p-2 fs-5 link-opacity-100-hover">Submit</button>
+  <button type="submit" 
+  className="btn mt-2 btn-primary w-100 p-2 fs-5 link-opacity-100-hover">Login</button>
 </form>
 <p className='text-center mt-4 '>Doesn't have a Account 
     <NavLink to='/Ragistartion' className='ms-2'>

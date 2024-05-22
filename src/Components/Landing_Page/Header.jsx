@@ -91,15 +91,16 @@ function Header() {
                     </span>
                   </NavLink>
                 </li>
-
-                <hr className="w-75 text-danger " />
+               
+                { user && 
                 <li className="mt-4 text-dec">
-                 { user && <NavLink className="text-decoration-none" to="/profile">
+                 <hr className="w-75 text-danger " />
+                  <NavLink className="text-decoration-none" to="/profile">
                     <span className="d-flex align-content-center fs-5 gap-2">
                       <PersonIcon className="fs-2 text-dark" /> Profile
                     </span>
-                  </NavLink>}
-                </li>
+                  </NavLink>
+                </li>}
                 <hr className="w-75 text-danger " />
                 <li className="mt-4">
                   <span className="d-flex align-content-center fs-5 gap-2">

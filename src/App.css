@@ -16,6 +16,40 @@
   font-family: "Artifika", serif;
 }
 
+.kk {
+  background-color: red;
+  color: #fff;
+  padding: 2px;
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.kk:hover{
+  background-color: #fff;
+  color: red;
+  animation: rotate360 .5s linear ;
+}
+.hK{
+  padding-top: 1.5rem;
+}
+
 .btn-c{
   font-family: "Artifika", serif;
   font-optical-sizing: auto;
