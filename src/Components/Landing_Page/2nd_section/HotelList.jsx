@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import { Link } from "react-router-dom";
 function HotelList() {
   
     const [hotel,setHotel]=useState([])
@@ -29,8 +30,9 @@ function HotelList() {
             hotel.map(item=>(
                <div className="col container-fluid mt-3">
                 
-                <div class="card" style={{width: "25rem"}}>
-   <img src={item.image[0]} height={250} class="card-img-top" alt="..."/>
+                <div class="card" style={{width: "18rem"}}>
+  <Link to={`/hotel/details/${item._id}`}>
+    <img src={item.image[0]} height={250} class="card-img-top" alt="..."/></Link> 
    <div class="card-body">
     <h5 class="card-title">{item.Hotel_Name}</h5>
     <p class="card-text">{item.city}</p>

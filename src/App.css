@@ -123,3 +123,71 @@ input::placeholder{
 .cc1{
   cursor: pointer;
 }
+
+/* Map responsive */
+
+.responsive_map{
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 30%;
+  position: relative;
+}
+
+.responsive_map iframe{
+  border: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+
+.float-icon {
+  position: sticky;
+  z-index: 1;
+  float: right;
+  top: 500px;
+}
+
+@media (max-width: 600px) {
+  .float-icon {
+    display: none;
+  }
+}
+
+.resp_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media(max-width:1212px){
+  .resp_header{
+    display: none;
+  }
+
+  .dnone{
+    display: flex;
+    align-items: center;
+
+  }
+
+  .resp-details{
+    margin-top: 1rem;
+  }
+
+  
+}
+
+@media(max-width:750px){
+  .dnone{
+    display: none;
+  }
+}
+
+@media(max-width:720){
+  .respinput{
+    
+  }
+}

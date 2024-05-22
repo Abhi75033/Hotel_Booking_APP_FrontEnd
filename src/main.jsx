@@ -18,6 +18,7 @@ import Error from './Components/Error.jsx'
 import Booking from './Components/Profile/Booking.jsx'
 import History from './Components/Profile/History.jsx'
 import ProfilePage from './Components/Profile/Profile_page.jsx'
+import HotelDetails from './Components/Hotel_Details/hotelDeatils.jsx'
         
 
 const router = createBrowserRouter(
@@ -32,6 +33,7 @@ createRoutesFromElements(
   <Route path='booking' element={<Booking/>}/>
     </Route>
     <Route path='*' element={<Error/>}/>
+    <Route path='/hotel/details/:hotel_id' element={<HotelDetails/>}/>
   </Route>
   
 )

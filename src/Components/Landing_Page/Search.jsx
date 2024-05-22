@@ -51,7 +51,7 @@ function Search() {
         <input
           type="text"
           placeholder="Where: Search Destination"
-          className=" in-1 bg-black p-3 text-light p-2 rounded-start-pill w-25"
+          className=" in-1 bg-black p-3 text-light  rounded-start-pill w-25"
         />
         <button onClick={handler} className="w-25  btn-c">
           {checkin}

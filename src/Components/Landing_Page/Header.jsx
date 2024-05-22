@@ -14,6 +14,14 @@ import { useMyContext } from "../Utils/ContextProvider";
 import profileimg from "../../assets/ProfileImage.jpg";
 import { Button } from "bootstrap";
 import { Skeleton } from "@mui/material";
+
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import FolderIcon from '@mui/icons-material/Folder';
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 // import Sidebar from './Sidebar';
 // import Sidebars from './Sidebar';
 function Header() {
@@ -27,7 +35,7 @@ function Header() {
   }
 
   return (
-    <div className=" h-50 w-100  d-flex align-items-center justify-content-between  p-4">
+    <div className=" d-flex align-items-center justify-content-between  h-50 w-100    p-4">
       <NavLink to="/">
         <div className="d-inline-flex">
           <img src={logo} height="40" width="40" />
@@ -37,13 +45,13 @@ function Header() {
         </div>
       </NavLink>
 
-      <div className="d-flex align-items-center ms-5">
+      <div className="resp_header  ms-5">
         <a className=" text-decoration-none a2 fs-5">Stays</a>
         <a className="ms-3 text-decoration-none a2 fs-5">Expreriences</a>
         <a className="ms-3 text-decoration-none a2 fs-5">Online Expreriences</a>
       </div>
       <div className="d-flex align-items-center">
-        <a className=" text-decoration-none a2 fs-5">Airbnb your home</a>
+        <a className=" text-decoration-none a2 dnone fs-5">Airbnb your home</a>
         <a className="ms-4 a2  fs-6">
           <LanguageIcon fontSize="small" />
         </a>
